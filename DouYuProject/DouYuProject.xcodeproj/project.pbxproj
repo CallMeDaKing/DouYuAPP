@@ -18,6 +18,8 @@
 		FA9A6FAE1FA0923700CAB1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9A6FAD1FA0923700CAB1E5 /* Assets.xcassets */; };
 		FA9A6FB11FA0923700CAB1E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9A6FAF1FA0923700CAB1E5 /* LaunchScreen.storyboard */; };
 		FAF9550E1FA319A50075EEE9 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9550D1FA319A50075EEE9 /* UIBarButtonItem-Extension.swift */; };
+		FAF955101FA3309C0075EEE9 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF9550F1FA3309C0075EEE9 /* PageTitleView.swift */; };
+		FAF955121FA338770075EEE9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF955111FA338770075EEE9 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FA9A6FB01FA0923700CAB1E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9A6FB21FA0923700CAB1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF9550D1FA319A50075EEE9 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		FAF9550F1FA3309C0075EEE9 /* PageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
+		FAF955111FA338770075EEE9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				FAF9550C1FA319650075EEE9 /* Extension */,
+				FAF955111FA338770075EEE9 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 		FA7D72F11FA1F7CD00B69B63 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF9550F1FA3309C0075EEE9 /* PageTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,7 +278,9 @@
 			files = (
 				FA9A6FA71FA0923700CAB1E5 /* AppDelegate.swift in Sources */,
 				FA7D72F51FA1F7CD00B69B63 /* MainViewController.swift in Sources */,
+				FAF955101FA3309C0075EEE9 /* PageTitleView.swift in Sources */,
 				FAF9550E1FA319A50075EEE9 /* UIBarButtonItem-Extension.swift in Sources */,
+				FAF955121FA338770075EEE9 /* Common.swift in Sources */,
 				FA7D72FA1FA1F8AF00B69B63 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

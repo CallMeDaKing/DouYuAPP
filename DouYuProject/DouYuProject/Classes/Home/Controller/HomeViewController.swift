@@ -20,8 +20,7 @@ class HomeViewController: UIViewController {
         let titles = ["推荐","游戏","娱乐","趣玩"]
         
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
-        
-        titleView.backgroundColor = UIColor.cyan
+    
         return titleView
         
     }()

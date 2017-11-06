@@ -13,7 +13,7 @@ private let kscrollLineH :CGFloat = 2
 class PageTitleView: UIView {
     
     //MARK:- 懒加载
-    
+
     private lazy var titleLables :[UILabel] = [UILabel]() //懒加载数组存放创建的lable
     private lazy var scrollView:UIScrollView = {
         
@@ -25,6 +25,8 @@ class PageTitleView: UIView {
         
         return scrollView
     }()
+    
+    //底部滚动线
     private lazy var scrollLine :UIView = {
         
         let scrollLine = UIView()
@@ -33,6 +35,8 @@ class PageTitleView: UIView {
         return scrollLine
         
     }()
+    
+    
     //MARK:- 定义属性
     private var titles :[String]
     
@@ -68,7 +72,7 @@ extension  PageTitleView{
         setUpTitleLables()
         
         //3 . 设置底线和滚动滑块
-//        setBottomMenueAndScrollLine()
+        setBottomMenueAndScrollLine()
         
     }
     
@@ -110,12 +114,14 @@ extension  PageTitleView{
         let lineH: CGFloat = 0.5
         bottomLine.frame = CGRect(x: 0, y: frame.height - lineH, width: frame.width, height: lineH)
         addSubview(bottomLine)
-        //添加scrollLine
+        
+        //添加底部scrollLine  滚动的线
         //获取第一个lable
         guard let firstLable = titleLables.first else{return}
         
+        firstLable.textColor = UIColor.orange
         scrollView .addSubview(scrollLine)
-        scrollView.frame = CGRect(x: firstLable.frame.origin.x, y: frame.height - kscrollLineH, width: firstLable.frame.width, height: kscrollLineH)
+        scrollLine.frame = CGRect(x: firstLable.frame.origin.x, y: frame.height - kscrollLineH, width: firstLable.frame.width, height: kscrollLineH)
         
     }
 }

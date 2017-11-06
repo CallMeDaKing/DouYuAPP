@@ -84,10 +84,10 @@ extension  PageTitleView{
         //1  这种遍历 既可以拿到下标，也可以拿到title
         for(index,title) in titles.enumerated(){
             
-            //1 .创建UILable
+            //创建UILable
             let lable = UILabel()
             
-            //2 .设置lable 的属性
+            //设置lable 的属性
             
             lable.text = title
             lable.tag = index
@@ -95,7 +95,7 @@ extension  PageTitleView{
             lable.textColor = UIColor.darkGray
             lable.textAlignment = .center
             
-            //3 设置lable 的frame
+            // 设置lable 的frame
             let lableX :CGFloat = lableW * CGFloat(index)
             
             lable.frame = CGRect(x: lableX, y: lableY, width: lableW, height: lableH)

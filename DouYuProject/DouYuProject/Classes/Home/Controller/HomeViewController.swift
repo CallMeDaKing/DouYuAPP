@@ -24,6 +24,26 @@ class HomeViewController: UIViewController {
         return titleView
         
     }()
+    // MARK  --  懒加载pageContentView
+    private lazy var pageContentView : PageContentView = {
+        //确定内容的frame
+        let contentH = kScreenH - kStateBarH - kNavigationBarH - kTitleViewH
+        let contentFrame = CGRect(x: 0, y: kStateBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
+        //确定所有的自控器
+        
+        var childVcs = [UIViewController]()
+        for _ in 0..<4 {
+            
+            let vc = UIViewController()
+            //给 UIColor 扩展   acr4Random 随机生成的是整数，需要在此转为 cgfloat 类型
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            childVcs.append(vc)
+        }
+        
+        let contentView = PageContentView(frame: contentFrame, chikdVcs: childVcs, parentViewController: self)
+        
+        return contentView
+    }()
     
     //Mark --系统回调函数
     override func viewDidLoad() {
@@ -41,7 +61,10 @@ extension HomeViewController{
         //设置导航栏
         setUpNavigationBar()
         //添加titleView
-        view .addSubview(pageTitleView)
+        view.addSubview(pageTitleView)
+        //添加内容VIEW
+        view.addSubview(pageContentView)
+        pageContentView.backgroundColor = UIColor.cyan
         
     }
     

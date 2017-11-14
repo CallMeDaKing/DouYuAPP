@@ -13,19 +13,19 @@ private let kTitleViewH : CGFloat = 40
 class HomeViewController: UIViewController {
     
     //MARK -- 懒加载我们的自定义 view   可以使用闭包的形式实现懒加载
-    private lazy var pageTitleView : PageTitleView = {
-    
+    private lazy var pageTitleView : PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: kStateBarH + kNavigationBarH, width: kScreenW, height: kTitleViewH)
         
         let titles = ["推荐","游戏","娱乐","趣玩"]
         
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
     
+        titleView.delegate = self
         return titleView
         
     }()
     // MARK  --  懒加载pageContentView
-    private lazy var pageContentView : PageContentView = {
+    private lazy var pageContentView : PageContentView = { [weak self] in
         //确定内容的frame
         let contentH = kScreenH - kStateBarH - kNavigationBarH - kTitleViewH
         let contentFrame = CGRect(x: 0, y: kStateBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
@@ -114,4 +114,14 @@ extension HomeViewController{
         navigationItem.rightBarButtonItems = [historyItem,searchItem,qrcodeItem]
         
     }
+}
+
+//mark -- 遵守PageTitleViewDelegate
+extension HomeViewController :PageTitleViewDelegate{
+    
+    func pageTitleView(titleView: PageTitleView, selectedIndex Index: Int) {
+        
+        pageContentView.setCurrentIndex(currentIndex: Index)
+    }
+    
 }

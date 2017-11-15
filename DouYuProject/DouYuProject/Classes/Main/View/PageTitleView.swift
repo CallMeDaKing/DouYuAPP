@@ -166,6 +166,15 @@ extension PageTitleView {
 extension PageTitleView{
     
     func setTitleWithProgress(progress: CGFloat , sourceIndex:Int ,targetIndex :Int){
+        //1.取出sourceLabel  和targertLabel
+        let sourceLabel = titleLables[sourceIndex]
+        let targetLabel = titleLables[targetIndex]
+        
+        //2. 处理滑块逻辑
+        let moveTototalX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+        let moveX = progress * moveTototalX
+        scrollLine.frame.origin.x = sourceLabel.frame.origin.x + moveX
+        
         
     }
 }

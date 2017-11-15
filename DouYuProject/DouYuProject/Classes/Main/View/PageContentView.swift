@@ -7,12 +7,20 @@
 //
 
 import UIKit
+
+protocol PageContentViewDelegate : class {
+    func pageContentView(contentView:PageContentView , progress: CGFloat , sourceIndex :Int ,targetIndex :Int)
+}
+
 private let cellID = "cellID"
 
 class PageContentView: UIView {
     //MARK - 自定义属性
+    
     private var childVcs : [UIViewController]
     private weak var parentViewController : UIViewController?
+    private var startOffsetX :CGFloat = 0
+    weak var delegate : PageContentViewDelegate?
     //MARK  -- 懒加载属性
     private lazy var collectionView : UICollectionView = { [weak self] in
         //1 创建layout 布局
@@ -30,6 +38,7 @@ class PageContentView: UIView {
         collectionView.bounces = false
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.delegate = self
         return collectionView
     }()
     //自定义构造函数  区别开便利构造函数
@@ -97,6 +106,59 @@ extension PageContentView{
         
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
         
+    }
+    
+}
+//MARK -- 遵守UIcollectionViewDelegate
+extension  PageContentView : UICollectionViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+       startOffsetX = scrollView.contentOffset.x
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //1 定义获取需要的数据
+        var progress :CGFloat = 0
+        var sourceIndex :Int = 0
+        var targetIndex :Int = 0
+        
+        //2.根据和scrollview 的偏移量进行比教判断是左滑还是右滑
+        let currentOffset = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        if  currentOffset > startOffsetX {
+            //左滑动 比例
+            // 计算progress   在这有个只是点， floor 函数 是取整函数
+            progress = currentOffset/scrollViewW - floor(currentOffset/scrollViewW)
+            //计算sourceIndex
+            sourceIndex = Int(currentOffset/scrollViewW)
+            //计算targetIndex
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childVcs.count{
+                targetIndex = childVcs.count - 1
+            }
+            //如果完全滑动过去  progress 应该为1
+            if currentOffset - startOffsetX == scrollViewW{
+                progress = 1
+                targetIndex = sourceIndex
+            }
+        }else{
+            //右滑动
+            progress = 1 - (currentOffset/scrollViewW - floor(currentOffset/scrollViewW))
+            //计算targetIndex
+            targetIndex = Int(currentOffset/scrollViewW)
+            //计算sourceIndex
+            sourceIndex = targetIndex + 1
+            if sourceIndex >= childVcs.count{
+                sourceIndex = childVcs.count - 1
+            }
+            //如果完全滑动过去
+            if startOffsetX - currentOffset == scrollViewW {
+                
+                sourceIndex = targetIndex
+            }
+            
+        }
+        //3 .将progress /sourceIndex/ targetIndex 传递给titleView
+        print("progress:\(progress)  sourceIndex \(sourceIndex) targetIndex \(targetIndex)")
+        delegate?.pageContentView(contentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
     
 }

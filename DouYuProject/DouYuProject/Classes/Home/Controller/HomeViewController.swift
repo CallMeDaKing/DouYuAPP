@@ -27,12 +27,13 @@ class HomeViewController: UIViewController {
     // MARK  --  懒加载pageContentView
     private lazy var pageContentView : PageContentView = { [weak self] in
         //确定内容的frame
-        let contentH = kScreenH - kStateBarH - kNavigationBarH - kTitleViewH
+        let contentH = kScreenH - kStateBarH - kNavigationBarH - kTitleViewH - kTabBarH
         let contentFrame = CGRect(x: 0, y: kStateBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentH)
         //确定所有的自控器
         
         var childVcs = [UIViewController]()
-        for _ in 0..<4 {
+        childVcs.append(RecommendViewController())
+        for _ in 0..<3 {
             
             let vc = UIViewController()
             //给 UIColor 扩展   acr4Random 随机生成的是整数，需要在此转为 cgfloat 类型

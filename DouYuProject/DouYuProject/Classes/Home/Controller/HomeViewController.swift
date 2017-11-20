@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         //设置UI界面
         setUpUI()
+        
     }
 }
 

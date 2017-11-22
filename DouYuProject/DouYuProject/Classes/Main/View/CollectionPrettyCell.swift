@@ -7,8 +7,18 @@
 //
 
 import UIKit
-
-class CollectionPrettyCell: UICollectionViewCell {
+import Kingfisher
+class CollectionPrettyCell: CollectionViewBaseCell {
+    //MARK --  拿到控件的属性
+    @IBOutlet weak var cityBtn: UIButton!
+    
     //MARK -- 定义模型属性
-    var anchor : AnchorModel?
+    override var anchor : AnchorModel?{
+        didSet{
+            super.anchor = anchor
+            //3.显示所在城市
+            cityBtn.setTitle(anchor?.anchor_city, for: .normal)
+
+        }
+    }
 }

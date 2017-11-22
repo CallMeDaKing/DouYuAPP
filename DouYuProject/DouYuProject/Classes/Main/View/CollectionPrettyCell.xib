@@ -21,6 +21,9 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dro-N9-71n">
                         <rect key="frame" x="0.0" y="183" width="46" height="14"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="q6p-oa-MZe"/>
                         </constraints>
@@ -47,34 +50,38 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="666在线" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7u-nl-3S1">
-                        <rect key="frame" x="107" y="5" width="60" height="20"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4L-5p-Ivo">
+                        <rect key="frame" x="104" y="8" width="60" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                        </accessibility>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="S9n-Jh-rmI"/>
-                            <constraint firstAttribute="width" constant="60" id="rIt-1K-8DP"/>
+                            <constraint firstAttribute="height" constant="20" id="LO7-7r-NFj"/>
+                            <constraint firstAttribute="width" constant="60" id="UyR-DR-JG5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
+                        <state key="normal" title="6666在线">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="3"/>
+                                <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
-                    </label>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="S4L-5p-Ivo" secondAttribute="trailing" constant="8" id="2YN-Gs-UTs"/>
+                <constraint firstItem="S4L-5p-Ivo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="6NJ-pt-7o8"/>
                 <constraint firstAttribute="trailing" secondItem="dvZ-bH-WFN" secondAttribute="trailing" id="6Qk-Rq-YZt"/>
                 <constraint firstItem="dvZ-bH-WFN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GjE-tl-jee"/>
                 <constraint firstItem="DMI-vF-NMz" firstAttribute="top" secondItem="dvZ-bH-WFN" secondAttribute="bottom" constant="5" id="NkM-Rr-WG4"/>
                 <constraint firstItem="DMI-vF-NMz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="S5j-oR-FwS"/>
-                <constraint firstAttribute="trailing" secondItem="l7u-nl-3S1" secondAttribute="trailing" constant="5" id="TME-By-5So"/>
                 <constraint firstAttribute="trailing" secondItem="DMI-vF-NMz" secondAttribute="trailing" constant="5" id="TgS-A0-Gyc"/>
-                <constraint firstItem="l7u-nl-3S1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="cGt-cT-KvH"/>
                 <constraint firstItem="dvZ-bH-WFN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ciO-oE-CB4"/>
                 <constraint firstItem="dro-N9-71n" firstAttribute="top" secondItem="DMI-vF-NMz" secondAttribute="bottom" constant="5" id="dcE-rx-wHF"/>
                 <constraint firstItem="dro-N9-71n" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vV1-d5-6vV"/>
@@ -82,6 +89,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="212" height="207"/>
+            <connections>
+                <outlet property="cityBtn" destination="dro-N9-71n" id="CpF-sy-YX6"/>
+                <outlet property="iconImageView" destination="dvZ-bH-WFN" id="oBi-Fb-QE5"/>
+                <outlet property="nickname" destination="DMI-vF-NMz" id="eUk-xa-Kbr"/>
+                <outlet property="onlineBtn" destination="S4L-5p-Ivo" id="0XV-G5-7e1"/>
+            </connections>
             <point key="canvasLocation" x="106" y="130.5"/>
         </collectionViewCell>
     </objects>

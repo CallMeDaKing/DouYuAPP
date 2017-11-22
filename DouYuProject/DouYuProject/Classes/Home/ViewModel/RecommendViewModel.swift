@@ -10,11 +10,12 @@ import UIKit
 
 class RecommendViewModel {  //如果用不到kvc 等属性的时候可以不继承NSObject
     //MARK -- 懒加载数组的属性，存放所有的组
+    lazy var cycleModels:[CycleModel] = [CycleModel]()
     lazy var anchorGroups:[AnchorGroup] = [AnchorGroup]()   //对外暴露的数组不需要private
     private lazy var bigDataGroup:AnchorGroup = AnchorGroup()
     private lazy var prettyGroup :AnchorGroup = AnchorGroup()
 }
-//MARK --发送网络请求
+//MARK --发送推荐模块网络请求
 extension RecommendViewModel{
     //推荐页面一共需要请求3个接口
     func requestDatas(finishCallBack :@escaping () ->()){
@@ -87,4 +88,20 @@ extension RecommendViewModel{
        
         
     }
+    //MARK -- 请求轮播数据 同样通过闭包返回数据
+    func requestCycleData(finishCallBack:@escaping () -> ()) {
+        NetWorkTools.requestData(type: .GET, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version": "2.300"]) { (result) in
+            //1.获取整体字典数据
+            guard let resultDic = result as? [String :NSObject] else {return }
+            guard  let dataArray = resultDic["data"] as? [[String : NSObject]] else {return}
+            //3。字典转模型
+            for dict in dataArray{
+                self.cycleModels.append(CycleModel(dict: dict))
+            }
+            print(self.cycleModels)
+            finishCallBack()
+        }
+    }
 }
+
+

@@ -14,6 +14,7 @@ private let kItemW = (kScreenW - 3 * kItemMargin)/2
 private let kItemH = kItemW * 3/4
 private let kPrettyH = kItemW * 4/3
 private let KHeaderViewH :CGFloat = 50
+private let kCycleViewH :CGFloat = kScreenW * 3/8
 private let kNormalCellID = "kNormalCellID"
 private let kHeaderViewID = "kHeaderViewID"
 private let kPrettyCellID = "PrettyCellID"
@@ -21,6 +22,12 @@ private let kPrettyCellID = "PrettyCellID"
 class RecommendViewController: UIViewController {
     //MARK -- 懒加载属性
     private lazy var recommenVM : RecommendViewModel = RecommendViewModel()
+    //懒加载cycleView
+    private lazy var cycleView :RecommendCycleView = {
+        let cycleView = RecommendCycleView.recommendCycleView()
+        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        return cycleView
+    }()
     private lazy var collectionView : UICollectionView = { [unowned   self] in
         //1 创建布局
         let flowLayout = UICollectionViewFlowLayout()
@@ -65,15 +72,25 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController{
     
     private func setUpUI(){
+        //1.将uicollectionView 添加到控制器的view中
         view.addSubview(collectionView)
+        //2.将cycleView 添加到UIcollectionView
+        collectionView.addSubview(cycleView)
+        //3 设置collectionview内边距 往下偏移cycleview 的高度
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0  )
     }
 }
 
-//MARK --请求数据
+//MARK --请求数据  在这不会产生循环引用，因为闭包对控制器有强引用，控制器对对象有强引用，但对象对闭包是没有强引用的
 extension  RecommendViewController{
     private func loadDat(){
+        //1.请求推荐数据
         recommenVM.requestDatas {
             self.collectionView .reloadData()
+        }
+        //2.请求轮播数据
+        recommenVM.requestCycleData {
+            self.cycleView.cycleModels = self.recommenVM.cycleModels
         }
     }
 }
@@ -102,21 +119,17 @@ extension RecommendViewController : UICollectionViewDataSource ,UICollectionView
         //0.取出模型对象
         let group = recommenVM.anchorGroups[indexPath.section]
         let anchor = group.anchors[indexPath.item]
+        //1.定义cell
+        var cell : CollectionViewBaseCell!
         
-        //1获取cell
+        //2获取cell
         if indexPath.section == 1 {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
-            
-            
-            return cell
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! CollectionPrettyCell
         }else{
-            
-           let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
-            
-            
-            return cell
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! CollectionNormalCell
         }
-
+         cell.anchor = anchor
+         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

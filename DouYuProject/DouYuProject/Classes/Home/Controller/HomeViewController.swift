@@ -51,12 +51,51 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         //设置UI界面
         setUpUI()
-        
+//        swiftTest()
     }
 }
 
 extension HomeViewController{
     
+    private func swiftTest(){
+        
+        //1 swift 测试
+        print("----------------------这是一个swift 的测试")
+        let galaxy = "King li "
+        print(galaxy.count) //8
+        print(galaxy.isEmpty)// false 通过isempty 检测确定值是否为空
+        print(galaxy.dropFirst())// "ing li " 删除第一个元素
+        print(String(galaxy.reversed()))// " il gnik" 字符串头末倒置 ，返回String类型
+        print(galaxy.dropLast()) // king li  删除最后一个元素
+        var variableString = "Horse"
+        variableString += " and carriage" //使用+号 直接进行字符串的相加
+        print(variableString.characters.count) // Swift3.0写法
+        print(variableString.count)            // Swift4.0写法
+        // variableString is now "Horse and carriage"
+        
+        //2 你也可以通过for in 循环访问字符串的单个的Character值
+        for character in "Dog!🐶" {
+            print(character)
+        }
+        // D
+        // o
+        // g
+        // !
+        // 🐶
+        let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
+        let catString = String(catCharacters)
+        print(catString)
+        // Prints "Cat!🐱"
+
+        let linsWithIndentation = """
+         this is lne \n\
+         thsi is twoline \n\
+         this is threeline
+         """
+        print(linsWithIndentation)
+
+        print("----------------------这是一个swift 的测试")
+    }
     private func setUpUI(){
         //不需要系统调整UIScrolView 的内边距
         automaticallyAdjustsScrollViewInsets = false

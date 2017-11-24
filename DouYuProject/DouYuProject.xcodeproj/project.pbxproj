@@ -18,6 +18,10 @@
 		FA2509961FC54C6300B2B5DA /* CollectionViewBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2509951FC54C6300B2B5DA /* CollectionViewBaseCell.swift */; };
 		FA2509981FC5533E00B2B5DA /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2509971FC5533E00B2B5DA /* RecommendCycleView.swift */; };
 		FA25099A1FC5536500B2B5DA /* RecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2509991FC5536500B2B5DA /* RecommendCycleView.xib */; };
+		FA3A0BB91FC7BC2D006F99F7 /* recommendGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A0BB71FC7BC2D006F99F7 /* recommendGameCell.swift */; };
+		FA3A0BBA1FC7BC2D006F99F7 /* recommendGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3A0BB81FC7BC2D006F99F7 /* recommendGameCell.xib */; };
+		FA4F604A1FC7B2B200F73C73 /* CommendGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F60491FC7B2B200F73C73 /* CommendGameView.swift */; };
+		FA4F604C1FC7B2D400F73C73 /* CommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4F604B1FC7B2D400F73C73 /* CommendGameView.xib */; };
 		FA5026BF1FC3BFDA00D39B18 /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5026BE1FC3BFDA00D39B18 /* AnchorModel.swift */; };
 		FA7B93441FB0065900FD1DAA /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B93431FB0065900FD1DAA /* PageContentView.swift */; };
 		FA7B93461FB00F0500FD1DAA /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B93451FB00F0500FD1DAA /* UIColor-Extension.swift */; };
@@ -57,6 +61,10 @@
 		FA2509951FC54C6300B2B5DA /* CollectionViewBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBaseCell.swift; sourceTree = "<group>"; };
 		FA2509971FC5533E00B2B5DA /* RecommendCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCycleView.swift; sourceTree = "<group>"; };
 		FA2509991FC5536500B2B5DA /* RecommendCycleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCycleView.xib; sourceTree = "<group>"; };
+		FA3A0BB71FC7BC2D006F99F7 /* recommendGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recommendGameCell.swift; sourceTree = "<group>"; };
+		FA3A0BB81FC7BC2D006F99F7 /* recommendGameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = recommendGameCell.xib; sourceTree = "<group>"; };
+		FA4F60491FC7B2B200F73C73 /* CommendGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommendGameView.swift; sourceTree = "<group>"; };
+		FA4F604B1FC7B2D400F73C73 /* CommendGameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommendGameView.xib; sourceTree = "<group>"; };
 		FA5026BE1FC3BFDA00D39B18 /* AnchorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		FA7B93431FB0065900FD1DAA /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
 		FA7B93451FB00F0500FD1DAA /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
@@ -206,6 +214,10 @@
 				FA2509991FC5536500B2B5DA /* RecommendCycleView.xib */,
 				FA1F92601FC57F58005AD0A1 /* CollectionCycleCell.swift */,
 				FA1F92611FC57F58005AD0A1 /* CollectionCycleCell.xib */,
+				FA4F60491FC7B2B200F73C73 /* CommendGameView.swift */,
+				FA4F604B1FC7B2D400F73C73 /* CommendGameView.xib */,
+				FA3A0BB71FC7BC2D006F99F7 /* recommendGameCell.swift */,
+				FA3A0BB81FC7BC2D006F99F7 /* recommendGameCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -366,10 +378,12 @@
 				FAF3F4271FBEC98700D3693D /* CollectionHeaderView.xib in Resources */,
 				FAF3F42B1FBED0BB00D3693D /* CollectionNormalCell.xib in Resources */,
 				FA9A6FB11FA0923700CAB1E5 /* LaunchScreen.storyboard in Resources */,
+				FA3A0BBA1FC7BC2D006F99F7 /* recommendGameCell.xib in Resources */,
 				FA9A6FAE1FA0923700CAB1E5 /* Assets.xcassets in Resources */,
 				FA7D72E51FA1F32000B69B63 /* Live.storyboard in Resources */,
 				FA7D72E21FA1F2A900B69B63 /* Home.storyboard in Resources */,
 				FA25099A1FC5536500B2B5DA /* RecommendCycleView.xib in Resources */,
+				FA4F604C1FC7B2D400F73C73 /* CommendGameView.xib in Resources */,
 				FA1F92631FC57F58005AD0A1 /* CollectionCycleCell.xib in Resources */,
 				FAF3F42F1FBEDE3600D3693D /* CollectionPrettyCell.xib in Resources */,
 				FA7D72EB1FA1F35D00B69B63 /* Profile.storyboard in Resources */,
@@ -441,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2509981FC5533E00B2B5DA /* RecommendCycleView.swift in Sources */,
+				FA3A0BB91FC7BC2D006F99F7 /* recommendGameCell.swift in Sources */,
 				FA9A6FA71FA0923700CAB1E5 /* AppDelegate.swift in Sources */,
 				FAF3F4261FBEC98700D3693D /* CollectionHeaderView.swift in Sources */,
 				FA7B93461FB00F0500FD1DAA /* UIColor-Extension.swift in Sources */,
@@ -458,6 +473,7 @@
 				FAF955121FA338770075EEE9 /* Common.swift in Sources */,
 				FAF3F42E1FBEDE3600D3693D /* CollectionPrettyCell.swift in Sources */,
 				FAF3F42A1FBED0BB00D3693D /* CollectionNormalCell.swift in Sources */,
+				FA4F604A1FC7B2B200F73C73 /* CommendGameView.swift in Sources */,
 				FA7D72FA1FA1F8AF00B69B63 /* HomeViewController.swift in Sources */,
 				FA1B50181FC2D224002996D4 /* RecommendViewModel.swift in Sources */,
 				FA5026BF1FC3BFDA00D39B18 /* AnchorModel.swift in Sources */,

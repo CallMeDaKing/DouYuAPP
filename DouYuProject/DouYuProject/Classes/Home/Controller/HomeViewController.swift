@@ -33,7 +33,8 @@ class HomeViewController: UIViewController {
         
         var childVcs = [UIViewController]()
         childVcs.append(RecommendViewController())
-        for _ in 0..<3 {
+        childVcs.append(GameViewController())
+        for _ in 0..<2 {
             
             let vc = UIViewController()
             //给 UIColor 扩展   acr4Random 随机生成的是整数，需要在此转为 cgfloat 类型
@@ -69,7 +70,7 @@ extension HomeViewController{
         print(galaxy.dropLast()) // king li  删除最后一个元素
         var variableString = "Horse"
         variableString += " and carriage" //使用+号 直接进行字符串的相加
-        print(variableString.characters.count) // Swift3.0写法
+        //print(variableString.characters.count) // Swift3.0写法
         print(variableString.count)            // Swift4.0写法
         // variableString is now "Horse and carriage"
         

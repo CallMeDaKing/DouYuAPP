@@ -14,6 +14,7 @@ class CycleModel: NSObject {
     var title : String = ""
     //图片地址
     var pic_url :String = ""
+    
     //主播信息对应的字典
     var room :[String :NSObject]?{
         didSet{

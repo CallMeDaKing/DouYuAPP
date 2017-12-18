@@ -32,9 +32,13 @@
 		FA7D72F51FA1F7CD00B69B63 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D72F31FA1F7CD00B69B63 /* MainViewController.swift */; };
 		FA7D72F81FA1F87A00B69B63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7D72F61FA1F87A00B69B63 /* Main.storyboard */; };
 		FA7D72FA1FA1F8AF00B69B63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7D72F91FA1F8AF00B69B63 /* HomeViewController.swift */; };
+		FA978C091FE7B39E003B3B29 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA978C081FE7B39E003B3B29 /* GameViewController.swift */; };
+		FA978C0B1FE7BEEC003B3B29 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA978C0A1FE7BEEC003B3B29 /* GameViewModel.swift */; };
 		FA9A6FA71FA0923700CAB1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6FA61FA0923700CAB1E5 /* AppDelegate.swift */; };
 		FA9A6FAE1FA0923700CAB1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9A6FAD1FA0923700CAB1E5 /* Assets.xcassets */; };
 		FA9A6FB11FA0923700CAB1E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9A6FAF1FA0923700CAB1E5 /* LaunchScreen.storyboard */; };
+		FAE51AA01FE7C3D30099E6B9 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51A9F1FE7C3D30099E6B9 /* GameModel.swift */; };
+		FAE51AA21FE7C5B70099E6B9 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51AA11FE7C5B70099E6B9 /* BaseGameModel.swift */; };
 		FAF3F4231FBEA2AA00D3693D /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3F4221FBEA2AA00D3693D /* RecommendViewController.swift */; };
 		FAF3F4261FBEC98700D3693D /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3F4241FBEC98700D3693D /* CollectionHeaderView.swift */; };
 		FAF3F4271FBEC98700D3693D /* CollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF3F4251FBEC98700D3693D /* CollectionHeaderView.xib */; };
@@ -75,11 +79,15 @@
 		FA7D72F31FA1F7CD00B69B63 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FA7D72F71FA1F87A00B69B63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA7D72F91FA1F8AF00B69B63 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA978C081FE7B39E003B3B29 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FA978C0A1FE7BEEC003B3B29 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FA9A6FA31FA0923700CAB1E5 /* DouYuProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYuProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9A6FA61FA0923700CAB1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9A6FAD1FA0923700CAB1E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9A6FB01FA0923700CAB1E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9A6FB21FA0923700CAB1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE51A9F1FE7C3D30099E6B9 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		FAE51AA11FE7C5B70099E6B9 /* BaseGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
 		FAF3F4221FBEA2AA00D3693D /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		FAF3F4241FBEC98700D3693D /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		FAF3F4251FBEC98700D3693D /* CollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeaderView.xib; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1B50171FC2D224002996D4 /* RecommendViewModel.swift */,
+				FA978C0A1FE7BEEC003B3B29 /* GameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 				FA7D72E01FA1F2A900B69B63 /* Home.storyboard */,
 				FA7D72F91FA1F8AF00B69B63 /* HomeViewController.swift */,
 				FAF3F4221FBEA2AA00D3693D /* RecommendViewController.swift */,
+				FA978C081FE7B39E003B3B29 /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1F925E1FC5795C005AD0A1 /* CycleModel.swift */,
+				FAE51A9F1FE7C3D30099E6B9 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,8 +277,9 @@
 		FA7D72F41FA1F7CD00B69B63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA1B501B1FC2DCA7002996D4 /* AnchorGroup.swift */,
 				FA5026BE1FC3BFDA00D39B18 /* AnchorModel.swift */,
+				FA1B501B1FC2DCA7002996D4 /* AnchorGroup.swift */,
+				FAE51AA11FE7C5B70099E6B9 /* BaseGameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,12 +469,16 @@
 				FA2509981FC5533E00B2B5DA /* RecommendCycleView.swift in Sources */,
 				FA3A0BB91FC7BC2D006F99F7 /* recommendGameCell.swift in Sources */,
 				FA9A6FA71FA0923700CAB1E5 /* AppDelegate.swift in Sources */,
+				FA978C0B1FE7BEEC003B3B29 /* GameViewModel.swift in Sources */,
 				FAF3F4261FBEC98700D3693D /* CollectionHeaderView.swift in Sources */,
+				FA978C091FE7B39E003B3B29 /* GameViewController.swift in Sources */,
 				FA7B93461FB00F0500FD1DAA /* UIColor-Extension.swift in Sources */,
 				FA1B501A1FC2D616002996D4 /* NSDate-Exrension.swift in Sources */,
 				FA1B501C1FC2DCA7002996D4 /* AnchorGroup.swift in Sources */,
 				FAF3F4231FBEA2AA00D3693D /* RecommendViewController.swift in Sources */,
 				FA7D72F51FA1F7CD00B69B63 /* MainViewController.swift in Sources */,
+				FAE51AA01FE7C3D30099E6B9 /* GameModel.swift in Sources */,
+				FAE51AA21FE7C5B70099E6B9 /* BaseGameModel.swift in Sources */,
 				FA1F92621FC57F58005AD0A1 /* CollectionCycleCell.swift in Sources */,
 				FA1F925F1FC5795C005AD0A1 /* CycleModel.swift in Sources */,
 				FA1B50141FC2CB19002996D4 /* NetWorkTools.swift in Sources */,

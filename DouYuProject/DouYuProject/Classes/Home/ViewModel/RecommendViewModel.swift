@@ -8,10 +8,9 @@
 
 import UIKit
 
-class RecommendViewModel {  //如果用不到kvc 等属性的时候可以不继承NSObject
+class RecommendViewModel :BaseViewModel{  //如果用不到kvc 等属性的时候可以不继承NSObject
     //MARK -- 懒加载数组的属性，存放所有的组
     lazy var cycleModels:[CycleModel] = [CycleModel]()
-    lazy var anchorGroups:[AnchorGroup] = [AnchorGroup]()   //对外暴露的数组不需要private
     private lazy var bigDataGroup:AnchorGroup = AnchorGroup()
     private lazy var prettyGroup :AnchorGroup = AnchorGroup()
 }
@@ -64,19 +63,9 @@ extension RecommendViewModel{
         //获取当前时间秒钟   转成字符串  "\(internal)"
         //http://capi.douyucdn.cn/api/v1/getHotCate?limit=4$offset=0&time1474252024
         Dgroup.enter()
-        NetWorkTools.requestData(type: .GET, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) { (result) in
-//            print(result)
-            //1. 将result 转成字典类型  现在是anyobject类型
-           guard let resultDict = result as? [String : NSObject] else{return}
-            //2 .根据data 的key 获取数组   数组里面存放的是一个字典类型
-            guard let ArrayData = resultDict["data"] as?[[String :NSObject]] else{return}
-            //遍历数组，获取字典，并将字典转成模型对象
-            for dict in ArrayData{
-                //目前在swift 还没有比较好的第三方框架直接字典转模型，随着这里使用原始的kvc转换方法
-                let group = AnchorGroup(dict: dict)
-                //将转化后的数据存放数组中 因为在臂包里面self
-                self.anchorGroups.append(group)
-            }
+        
+        //抽取以后的代码
+        loadAnchorData(URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
             Dgroup.leave()
         }
         //判断所有的数据都请求到 ,然后按顺序插入到anchorGroups 数组中 [bigDataGroup, prettyGroup ,第三部分数据]  ，因为在闭包呢内所以属性加self.

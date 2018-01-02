@@ -34,7 +34,8 @@ class HomeViewController: UIViewController {
         var childVcs = [UIViewController]()
         childVcs.append(RecommendViewController())
         childVcs.append(GameViewController())
-        for _ in 0..<2 {
+        childVcs.append(AmouseViewController())
+        for _ in 0..<1 {
             
             let vc = UIViewController()
             //给 UIColor 扩展   acr4Random 随机生成的是整数，需要在此转为 cgfloat 类型
